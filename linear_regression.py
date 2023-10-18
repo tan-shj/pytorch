@@ -14,7 +14,7 @@ class LinearModel(torch.nn.Module):
 #定义线性模型
 model = LinearModel()
 #定义Loss函数(均值平均误差)
-criterion = torch.nn.MSELoss(size_average=False)
+criterion = torch.nn.MSELoss(reduction='sum')
 #定义优化器(随机梯度下降)
 optimizer = torch.optim.SGD(model.parameters(),lr=0.01)
 
@@ -34,4 +34,4 @@ print('b=',model.linear.bias.item())
 #预测
 x_test = torch.tensor([[4.0]])
 y_test = model(x_test)
-print('y_pred=',y_test.data)
+print('y_pred=',y_test.data.item())
