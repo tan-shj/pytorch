@@ -15,7 +15,7 @@ class LogisticRegressionModel(torch.nn.Module):
     def forward(self,x):
         y_pred = F.sigmoid(self.linear(x))
         return y_pred
-    
+
 #定义逻辑回归模型
 model = LogisticRegressionModel()
 #定义Loss函数(二分类loos)
